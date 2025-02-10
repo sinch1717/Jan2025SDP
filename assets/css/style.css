@@ -1,0 +1,23 @@
+.form {
+    padding: 10px;
+    border: 1px solid rgb(86, 77, 110);
+    border-radius: 20px;
+}
+
+.form > div {
+    padding: 1px;
+    margin-bottom: 5px;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.form > div > label {
+    display: inline-block;
+    min-width: 100px;
+}
+
+table, th, td {
+    border: 1px solid grey;
+    text-align: center;
+}

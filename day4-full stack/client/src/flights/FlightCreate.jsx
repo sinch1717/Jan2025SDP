@@ -1,6 +1,8 @@
+import { useState } from "react";
 import PageHeader from "../header/PageHeader";
 
 function FlightCreate() {
+    const [flight, setFlights] = useState({id:'1010', number:'AI 756', airline_name:'Air India', source:'Mysore', destination:'Trichy', capacity: 180, price: 8000.0})
     return (
         <>
             <PageHeader PageNumber={2}/>

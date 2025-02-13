@@ -14,7 +14,7 @@ type Flight struct{
 	Source 			string			`json:"source"`
 	Destination 	string			`json:"destination"`
 	Capacity 		int				`json:"capacity"`
-	Price 			float32			`json:"price_of_ticket"`
+	Price 			float32			`json:"price"`
 }
 
 func readAllFlights( c *gin.Context) {

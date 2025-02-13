@@ -1,18 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PageHeader from "../header/PageHeader";
+import axios from 'axios';
 
 function FlightList() {
     // maintaining and creating the state
-    const [flights, setFlights] = useState([ //state ref element, functional element to set state
-        {id: '1010', number:'AI 765', airline_name: 'Air_India',
-            source: 'Mysore', destination: 'Bangalore', 
-            capacity: 180, price: 5000.0
-        },
-        {id: '1011', number:'AI 768', airline_name: 'Air_India',
-            source: 'Bangalore', destination: 'Mysore', 
-            capacity: 180, price: 5000.0
+    const [flights, setFlights] = useState([]); 
+    const readAllFlights = async () => {
+        try {
+            const baseURL = 'http://localhost:8080'
+            const response = await axios.get(`${baseURL}/flights`);
+            setFlights(response.data);
+        } catch(error) {
+            alert('Server Error');
         }
-    ]); 
+    };
+    useEffect(()=> {readAllFlights();}, []); // {} handles aftermount, before unmount; [] handles after update (parts of component lifecycle)
+
     //initialize with either JSON, array or any primitive data
     // state is immutable
     // using setFlights for the changes to be reflected in the components
